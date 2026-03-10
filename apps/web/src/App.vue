@@ -1,11 +1,22 @@
-<!-- src/App.vue -->
 <template>
-  <Navbar />
-  <router-view />
-  <Footer />
+  <div id="app">
+    <!-- SEARCH BAR PRO SELENIUM TESTY -->
+    <input
+      id="search"
+      type="text"
+      placeholder="Search..."
+      style="padding: 8px; margin: 16px; width: 250px;"
+    />
+
+    <!-- Zbytek tvé stránky -->
+    <router-view />
+  </div>
 </template>
 
-<script setup lang="ts">
-import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
+<script setup>
+// Pokud tu nic nemáš, je to v pořádku
 </script>
+
+<style>
+/* Tvoje styly */
+</style>
