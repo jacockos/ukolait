@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
 def setup_driver():
@@ -38,17 +40,27 @@ def test_click_first_link():
 
 def test_search_bar_exists():
     driver = setup_driver()
-    driver.find_element(By.CSS_SELECTOR, "input[type='search']")
+
+    # počkáme až se objeví jakýkoliv input
+    search = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input"))
+    )
+
     assert search is not None
-    driver.quit()
 
 def test_search_typing():
     driver = setup_driver()
-    driver.find_element(By.CSS_SELECTOR, "input[type='search']")
-    search.send_keys("test")
-    assert search.get_attribute("value") == "test"
-    driver.quit()
 
+    # najdeme input
+    search = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input"))
+    )
+
+    # napíšeme text
+    search.send_keys("test")
+
+    # ověříme, že se text opravdu zapsal
+    assert search.get_attribute("value") == "test"
 def test_footer_exists():
     driver = setup_driver()
     footer = driver.find_element(By.TAG_NAME, "footer")
