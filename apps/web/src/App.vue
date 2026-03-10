@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <!-- SEARCH BAR PRO SELENIUM TESTY -->
+
+    <!-- NAVIGATION BAR PRO SELENIUM TEST -->
+    <nav style="padding: 16px; background: #f0f0f0; margin-bottom: 16px;">
+      <a href="/">Home</a>
+    </nav>
+
+    <!-- SEARCH BAR PRO SELENIUM TEST -->
     <input
       id="search"
       type="text"
@@ -8,15 +14,21 @@
       style="padding: 8px; margin: 16px; width: 250px;"
     />
 
-    <!-- Zbytek tvé stránky -->
+    <!-- OBSAH STRÁNKY -->
     <router-view />
+
+    <!-- FOOTER PRO SELENIUM TEST -->
+    <footer style="padding: 16px; background: #f0f0f0; margin-top: 32px;">
+      <p>Footer content</p>
+    </footer>
+
   </div>
 </template>
 
 <script setup>
-// Pokud tu nic nemáš, je to v pořádku
+// nic sem dávat nemusíš
 </script>
 
 <style>
-/* Tvoje styly */
+/* tvoje styly */
 </style>
