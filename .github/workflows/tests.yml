@@ -26,11 +26,11 @@ jobs:
 
     - name: Install frontend dependencies
       run: npm install
-      working-directory: web
+      working-directory: apps/web
 
     - name: Start frontend
       run: npm run dev &
-      working-directory: web
+      working-directory: apps/web
 
     - name: Wait for frontend to start
       run: |
