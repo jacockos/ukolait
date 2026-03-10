@@ -17,3 +17,6 @@ pytest tests_python
 
 Jak spusit selenium testy 
 pytest tests_selenium
+
+
+tesyt
