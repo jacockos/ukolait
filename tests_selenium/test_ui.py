@@ -19,7 +19,7 @@ def setup_driver():
 
 def test_homepage_loads():
     driver = setup_driver()
-    assert "Tour" in driver.title
+    assert "Think different" in driver.title
     driver.quit()
 
 def test_navigation_menu():
@@ -38,13 +38,13 @@ def test_click_first_link():
 
 def test_search_bar_exists():
     driver = setup_driver()
-    search = driver.find_element(By.TAG_NAME, "input")
+    driver.find_element(By.CSS_SELECTOR, "input[type='search']")
     assert search is not None
     driver.quit()
 
 def test_search_typing():
     driver = setup_driver()
-    search = driver.find_element(By.TAG_NAME, "input")
+    driver.find_element(By.CSS_SELECTOR, "input[type='search']")
     search.send_keys("test")
     assert search.get_attribute("value") == "test"
     driver.quit()
